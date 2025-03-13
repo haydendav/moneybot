@@ -1,0 +1,28 @@
+# Maven build
+target/
+
+# Gradle build
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Application specific
+*.bak
+*.swp
