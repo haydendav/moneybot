@@ -1,25 +1,43 @@
 package com.moneybot.controller;
 
-import com.moneybot.dto.TransactionDTO;
+import com.moneybot.model.Transaction;
+import com.moneybot.model.Category;
+import com.moneybot.repository.CategoryRepository;
 import com.moneybot.service.TransactionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
 @RestController
-@RequestMapping("/moneybot/transactions")
+@RequestMapping("/api/transactions")
+@CrossOrigin(origins = "*")
 public class TransactionController {
 
     private final TransactionService transactionService;
+    private final CategoryRepository categoryRepository;
 
-    @Autowired
-    public TransactionController(TransactionService transactionService) {
+    public TransactionController(TransactionService transactionService, CategoryRepository categoryRepository) {
         this.transactionService = transactionService;
+        this.categoryRepository = categoryRepository;
+    }
+
+    @GetMapping
+    public List<Transaction> getAllTransactions() {
+        return transactionService.getAllTransactions();
     }
 
     @PostMapping
-    public String addTransaction(@RequestBody TransactionDTO transactionDTO) {
-        transactionService.saveTransaction(transactionDTO);
-        return "Transaction added successfully!";
+    public Transaction addTransaction(@RequestBody Transaction transaction) {
+        if (transaction.getAmount() == null) {
+            throw new IllegalArgumentException("Amount cannot be null.");
+        }
+
+        Optional<Category> category = categoryRepository.findById(transaction.getCategory().getId());
+        category.ifPresent(transaction::setCategory);
+
+        return transactionService.saveTransaction(transaction);
     }
 }
-

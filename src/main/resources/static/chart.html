@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- ✅ Chart.js for Charts -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="transactions.html">All Transactions</a>
+        <a href="chart.html">Transaction Charts</a>
+    </nav>
+
+    <h1>Transactions Overview</h1>
+
+    <!-- ✅ Month Selector -->
+    <label for="monthSelector">Select Month:</label>
+    <select id="monthSelector"></select>
+
+    <!-- ✅ Two Side-by-Side Charts -->
+    <div class="charts-container">
+        <canvas id="transactionPieChart"></canvas> <!-- ✅ Pie Chart -->
+        <canvas id="transactionBarChart"></canvas> <!-- ✅ Bar Chart -->
+    </div>
+
+    <script src="chart.js"></script>
+</body>
+</html>

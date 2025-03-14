@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyBot Transactions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="transactions.html">All Transactions</a>
+        <a href="chart.html">Transaction Chart</a>
+    </nav>
+    
+    <h1>moneybot</h1>
+    
+    <form id="transactionForm">
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Enter description (optional)">
+    
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" step="0.01" required>
+    
+        <label for="transactionDate">Date:</label>
+        <input type="date" id="transactionDate">
+    
+        <label for="category">Category:</label>
+        <select id="category" required>
+            <option value="">Select a Category</option>
+        </select>
+    
+        <button type="submit">Add Transaction</button>
+    </form>
+    
+    <h1></h1>
+    <table id="recentTransactionsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Only last 5 transactions will be displayed here -->
+        </tbody>
+    </table>   
+
+    <script src="script.js"></script>
+</body>
+</html>
