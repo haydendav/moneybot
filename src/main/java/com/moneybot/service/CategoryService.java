@@ -3,7 +3,6 @@ package com.moneybot.service;
 import com.moneybot.model.Category;
 import com.moneybot.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -16,7 +15,7 @@ public class CategoryService {
     }
 
     public List<Category> getAllCategories() {
-        return categoryRepository.findAll(); // Fetch all categories
+        return categoryRepository.findAll();
     }
 
     public Category saveCategory(Category category) {

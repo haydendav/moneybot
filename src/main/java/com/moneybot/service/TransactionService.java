@@ -2,9 +2,7 @@ package com.moneybot.service;
 
 import com.moneybot.model.Transaction;
 import com.moneybot.repository.TransactionRepository;
-
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 @Service

@@ -10,4 +10,3 @@ public class MoneyBotApplication {
         SpringApplication.run(MoneyBotApplication.class, args);
     }
 }
-

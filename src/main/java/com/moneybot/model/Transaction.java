@@ -12,7 +12,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, precision = 10, scale = 2) // ✅ Ensures decimal storage
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
     @Column(name = "transaction_date")
@@ -22,10 +22,9 @@ public class Transaction {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @Column(nullable = true) // ✅ Allow description to be NULL
+    @Column(nullable = true)
     private String description;
 
-    // Constructors
     public Transaction() {}
 
     public Transaction(String description, BigDecimal amount, LocalDate transactionDate, Category category) {
@@ -35,7 +34,6 @@ public class Transaction {
         this.category = category;
     }
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

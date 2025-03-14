@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 throw new Error("Failed to add transaction.");
             }
 
-            loadRecentTransactions(); // Refresh table
+            loadRecentTransactions();
         } catch (error) {
             console.error("Error adding transaction:", error);
         }
@@ -65,10 +65,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const response = await fetch("/api/transactions");
             const transactions = await response.json();
 
-            const recentTransactions = transactions.slice(-5); // ✅ Only last 5 transactions
+            const recentTransactions = transactions.slice(-5);
 
             const tableBody = document.querySelector("#recentTransactionsTable tbody");
-            tableBody.innerHTML = ""; // Clear table
+            tableBody.innerHTML = "";
 
             recentTransactions.forEach(t => {
                 const row = document.createElement("tr");

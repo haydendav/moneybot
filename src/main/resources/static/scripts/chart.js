@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     function renderPieChart(categoryTotals) {
         const ctx = document.getElementById("transactionPieChart").getContext("2d");
-        if (window.pieChart) window.pieChart.destroy(); // ✅ Prevent multiple charts
+        if (window.pieChart) window.pieChart.destroy();
 
         window.pieChart = new Chart(ctx, {
             type: "pie",
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // ✅ Prevents oversized chart
+                maintainAspectRatio: false,
                 plugins: { legend: { position: "top" } }
             }
         });
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     function renderBarChart(categoryMonthlyTotals) {
         const ctx = document.getElementById("transactionBarChart").getContext("2d");
-        if (window.barChart) window.barChart.destroy(); // ✅ Prevent multiple charts
+        if (window.barChart) window.barChart.destroy();
 
         const months = Object.keys(categoryMonthlyTotals);
         const categories = [...new Set(Object.values(categoryMonthlyTotals).flatMap(obj => Object.keys(obj)))];
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // ✅ Prevents oversized chart
+                maintainAspectRatio: false,
                 plugins: { legend: { position: "top" } },
                 scales: { y: { beginAtZero: true } }
             }
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     function getRandomColor() {
-        return `hsl(${Math.random() * 360}, 70%, 50%)`; // ✅ Random HSL colors
+        return `hsl(${Math.random() * 360}, 70%, 50%)`;
     }
 
     fetchTransactionData();
